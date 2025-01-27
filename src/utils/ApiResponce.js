@@ -6,3 +6,4 @@ class ApiResponse {
         this.success = statusCode < 400  //check memo our check
     }
 }
+export {ApiResponse}
