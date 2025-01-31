@@ -1,7 +1,7 @@
 import { asyncHandler } from "../utils/asyncHandler.js"
 import { ApiError } from "../utils/ApiError.js"
 import { User } from "../models/user.models.js"
-import { uploadOnCloudniry } from "../utils/cloudinary.js"
+import { uploadOnCloundinary } from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponce.js"
 const registerUser = asyncHandler(async (req, res) => {
     // get user input
@@ -39,7 +39,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     const avatar = await uploadOnCloudniry(avatarLocalPath)
-    const coverImage = await uploadOnCloudniry(coverImageLocalPath)
+    const coverImage = await uploadOnCloundinary(coverImageLocalPath)
 
     if (!avatar) {
         throw new ApiError(400, "Avatar file is required");
