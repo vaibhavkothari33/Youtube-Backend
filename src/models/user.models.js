@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+import mongoose ,{Schema} from "mongoose";
 import jwt from "jsonwebtoken"
 import brcyt from "bcrypt"
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     usename: {
         type: String,
         required: true,
@@ -31,10 +31,12 @@ const userSchema = new mongoose.Schema({
     coverImage: {
         type: String,
     },
-    watchHistory: [{
-        type: Schema.Types.ObjectId,
-        ref: "Video"
-    }],
+    watchHistory: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Video"
+        }
+    ],
     password: {
         type: String, // enquiction is required 
         require: [true, "Password is required"]
