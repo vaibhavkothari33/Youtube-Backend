@@ -37,7 +37,8 @@ const registerUser = asyncHandler( async (req, res) => {
 
 
     const {fullName, email, username, password } = req.body
-    //console.log("email: ", email);
+
+    console.log("email: ", email);
 
     if (
         [fullName, email, username, password].some((field) => field?.trim() === "")
@@ -73,6 +74,7 @@ const registerUser = asyncHandler( async (req, res) => {
     if (!avatar) {
         throw new ApiError(400, "Avatar file is required")
     }
+   
    
 
     const user = await User.create({
@@ -113,7 +115,7 @@ const loginUser = asyncHandler(async (req, res) =>{
         throw new ApiError(400, "username or email is required")
     }
     
-    // Here is an alternative of above code based on logic discussed in video:
+    // Here is an alternative of above code based on logic discussed 
     // if (!(username || email)) {
     //     throw new ApiError(400, "username or email is required")
         
@@ -138,7 +140,7 @@ const loginUser = asyncHandler(async (req, res) =>{
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
 
     const options = {
-        httpOnly: true,
+        httpOnly: true, 
         secure: true
     }
 
